@@ -8,12 +8,12 @@ class BannerService extends Service {
         const pageSize = params.pageSize ? Number(params.pageSize) : null;
         const pageIndex= params.pageIndex ? Number(params.pageIndex) : null;
         if (params && pageIndex && pageSize) {
-            const result = await this.ctx.model.Banner.find(params)
+            const result = await this.ctx.model.Banner.find()
                 .skip((pageIndex - 1) * pageSize)
                 .sort({ sort: -1 })
                 .limit(pageSize);
             let total = 0;
-            this.ctx.model.Banner.count(function (err, res) {
+            await this.ctx.model.Banner.count(function (err, res) {
                 total = res;
             })
             data = {
@@ -24,7 +24,7 @@ class BannerService extends Service {
                 totalPage: total ? Math.ceil(total / pageSize) : 0
             }
         } else {
-            const result = await this.ctx.model.Banner.find(params)
+            const result = await this.ctx.model.Banner.find()
             data = {
                 list: result
             }

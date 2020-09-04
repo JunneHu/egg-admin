@@ -11,6 +11,10 @@ module.exports = app => {
             allowNull: false,
             require: true
         },
+        mobile:{
+            type: String,
+            unique: true,
+        },
         password: {
             type: String,
             allowNull: false

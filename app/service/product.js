@@ -4,9 +4,9 @@ const Service = require('egg').Service;
 
 class ProductService extends Service {
     async getList(params) {
-        const result = await this.ctx.model.Product.find(params);
+        const proList = await this.ctx.model.Product.find(params);
         const data = {
-            list: result
+            list: proList
         }
         return data
     }

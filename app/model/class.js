@@ -5,7 +5,7 @@ module.exports = app => {
     const Schema = mongoose.Schema;
 
     const ClassSchema = new Schema({
-        orderNo: {
+        name: {
             type: String,
             unique: true,
             require: true

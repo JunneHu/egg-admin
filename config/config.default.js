@@ -20,6 +20,7 @@ module.exports = appInfo => {
     csrf: {
       enable: false,
     },
+    domainWhiteList: [ '*' ]
   };
   // HTTP请求配置
   config.httpclient = {
@@ -65,7 +66,7 @@ module.exports = appInfo => {
   }
   config.cors = {
     origin: '*', // 访问白名单,根据你自己的需要进行设置
-    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
   };
   config.mongoose = {
     url: 'mongodb://127.0.0.1:27017/fl',
